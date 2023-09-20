@@ -1,7 +1,17 @@
+using BasicApp.Bussiness.Abstract;
+using BasicApp.Bussiness.Concrete;
+using BasicApp.DataAccess.Abstract;
+using BasicApp.DataAccess.Concrete.EntityFramework;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IProductService, ProductManager>();
+builder.Services.AddScoped<IProductDal, EfProductDal>();
+
+builder.Services.AddMvc();
 
 var app = builder.Build();
 
