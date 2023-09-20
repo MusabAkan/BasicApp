@@ -2,7 +2,6 @@ using BasicApp.Bussiness.Abstract;
 using BasicApp.Bussiness.Concrete;
 using BasicApp.DataAccess.Abstract;
 using BasicApp.DataAccess.Concrete.EntityFramework;
-using BasicApp.Web.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,9 +25,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseFileServer();
+//app.UseFileServer();
 
-app.UseNodeModules(app.Environment.ContentRootPath);
+//app.UseNodeModules(app.Environment.ContentRootPath);
 
 app.UseRouting();
 
