@@ -4,7 +4,8 @@ namespace BasicApp.Entities.Concrete
 {
     public class Category :IEntity
     {
-         public string Name { get; set; }
-         public Guid Id { get; set; }
+        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
+        
     }
 }

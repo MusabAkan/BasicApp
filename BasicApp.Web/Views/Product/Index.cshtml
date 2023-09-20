@@ -1,31 +1,21 @@
-﻿@model ProductListViewModel
+﻿@model BasicApp.Web.Models.ProductListViewModel
 @{
-    Layout = null;
+    Layout = "~/Views/_Layout.cshtml";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-    <div>
-        <table>
+<div>
+    <table>
+        <tr>
+            <td>Product Name</td>
+            <td>Price</td>
+            <td>In Stock</td>
+        </tr>
+        @foreach (var product in Model.Products)
+        {
             <tr>
-                <td>Product Name</td>
-                <td>Price</td>
-                <td>In Stock</td>
+                <td>@product.ProductName</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.UnitsInStock</td>
             </tr>
-            @foreach (var product in Model.Products)
-            {
-                <tr>
-                    <td>@product.Name</td>
-                    <td>@product.UnitPrice</td>
-                    <td>@product.UnitsInStock</td>
-                </tr>
-            }
-        </table>
-    </div>
-</body>
-</html>
+        }
+    </table>
+</div>
