@@ -13,12 +13,17 @@ namespace BasicApp.Web.Controllers
             _productService = productService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, int category = 0)
         {
-            var product = _productService.GetAll();
-            ProductListViewModel model = new ()
+            int pageSize = 5;
+            var product = _productService.GetByCategory(category);
+            ProductListViewModel model = new()
             {
-                Products = product
+                Products = product.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+                PageCount = (int)Math.Ceiling(product.Count / (double)pageSize),
+                PageSize = pageSize,
+                CurrentCategory = category,
+                CurrentPage = page
             };
             return View(model);
         }

@@ -11,7 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <UpToDateCheckInput Remove="Views\Shared\Components\CategoryList\Default.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\CategoryList\Default.cshtml" />
   </ItemGroup>
 
 </Project>
