@@ -19,13 +19,13 @@ namespace BasicApp.Web.Controllers
 
         public ActionResult AddToCart(int productId)
         {
-            TempData.Clear();
+            
             var productToBeAdded = _productService.GetById(productId);
             var cart = _cartSessionService.GetCart();
             _cartService.AddToCart(cart, productToBeAdded);
             _cartSessionService.SetCart(cart);
             TempData.Add("message", $"Your product, {productToBeAdded.ProductName} was successfuly added to the cart!");
-            return RedirectToAction("List", "Product");
+            return RedirectToAction("Index", "Product");
         }
     }
 }

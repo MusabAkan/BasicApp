@@ -15,11 +15,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\CartSummary\Default.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Shared\Components\CategoryList\Default.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\Components\CartSummary\Default.cshtml" />
   </ItemGroup>
 
 </Project>

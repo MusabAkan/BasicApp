@@ -1,0 +1,17 @@
+﻿@model BasicApp.Web.Models.CartSummaryViewModel
+<ul class="dropdown-menu">
+    @foreach (var item in Model.Cart.CartLines)
+    {
+        <li>
+            <a>@item.Product.ProductName <span class="badge bg-secondary">@item.Qunatity</span></a>
+        </li>
+    }
+    <li role="separator" class="dropdown-divider"></li>
+    <li>
+        <i class="fa fa-shopping-cart" style="font-size:24px;color:grey"> @Model.Cart.Total ₺</i> 
+    </li>
+    <li role="separator" class="dropdown-divider"></li>
+    <li>
+        <a asp-controller="Cart" asp-action="AddToCart">Go to cart details...</a>
+    </li>
+</ul>

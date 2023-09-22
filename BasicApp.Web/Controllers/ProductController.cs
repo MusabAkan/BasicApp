@@ -27,17 +27,5 @@ namespace BasicApp.Web.Controllers
             };
             return View(model);
         }
-
-      
-
-        //public string Session()
-        //{
-        //    HttpContext.Session.SetString("City", "Ankara");
-        //    HttpContext.Session.SetInt32("age",32);
-
-        //    HttpContext.Session.GetString("city");
-        //    HttpContext.Session.GetInt32("age");
-
-        //}
     }
 }
