@@ -2,6 +2,7 @@ using BasicApp.Bussiness.Abstract;
 using BasicApp.Bussiness.Concrete;
 using BasicApp.DataAccess.Abstract;
 using BasicApp.DataAccess.Concrete.EntityFramework;
+using BasicApp.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,11 @@ builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<IProductDal, EfProductDal>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
+builder.Services.AddSingleton<ICartSessionService, CartSesisonService>();
+builder.Services.AddSingleton<ICartService, CartManager>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSession();
+builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddMvc();
 
@@ -32,6 +38,7 @@ app.UseStaticFiles();
 //app.UseNodeModules(app.Environment.ContentRootPath);
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 
