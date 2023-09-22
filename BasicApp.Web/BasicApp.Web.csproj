@@ -27,4 +27,8 @@
     <UpToDateCheckInput Remove="Views\Shared\Components\CartSummary\Default.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Cart\" />
+  </ItemGroup>
+
 </Project>
