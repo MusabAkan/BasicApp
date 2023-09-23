@@ -12,7 +12,12 @@ namespace BasicApp.Bussiness.Concrete
         public List<Product> GetByCategory(int categoryId) => _productDal.GetList(p => p.CategoryID == categoryId || categoryId == 0);
         public void Add(Product product) => _productDal.Add(product);
         public void Update(Product product) => _productDal.Update(product);
-        public void Delete(Product product) => _productDal.Delete(product);
+        public void Delete(int productId)
+        {
+            Product product = GetById(productId);
+            _productDal.Delete(product);
+        }
+
         public Product GetById(int productId) => _productDal.Get(p => p.ProductID == productId);
     }
 }

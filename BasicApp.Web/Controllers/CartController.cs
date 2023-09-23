@@ -29,14 +29,45 @@ namespace BasicApp.Web.Controllers
             return RedirectToAction("Index", "Product");
         }
 
-        public ViewResult List()
+        public ActionResult List()
         {
-            Cart cart = _cartSessionService.GetCart();
-            CartListViewModel model = new ()
+            var cart = _cartSessionService.GetCart();
+            CartListViewModel cartListViewModel = new CartListViewModel
             {
                 Cart = cart
             };
-            return View(model);
+            return View(cartListViewModel);
+        }
+
+        public ActionResult Remove(int productId)
+        {
+            var cart = _cartSessionService.GetCart();
+            _cartService.RemoveFromCart(cart, productId);
+            _cartSessionService.SetCart(cart);
+            TempData.Add("message", $"Your product was successfully removed form the cart!");
+            return RedirectToAction("List");
+
+        }
+
+        public IActionResult Complete()
+        {
+            var shippingDetailsViewModel = new ShiippingDetailsViewModel()
+            {
+                ShippingDetails = new ShiippingDetails()
+            };
+            return View(shippingDetailsViewModel);
+        }
+        [HttpPost]
+        public IActionResult Complete(ShiippingDetails shippingDetails)
+        {
+            if (!ModelState.IsValid)
+                return View();
+            TempData.Add("message", $"Thank you {shippingDetails.FirstName}, your order is in process!");
+            return View();
+
+
         }
     }
+
+     
 }

@@ -18,7 +18,7 @@
             <td>@item.Product.UnitPrice</td>
             <td>@item.Product.UnitsInStock</td>
             <td>@item.Qunatity</td>
-            @* <td class="text-right"><a class="btn btn-xs btn-danger" asp-controller="Cart" asp-action="Remove" asp-route-productId="@item.Product.ProductID"></a> </td>  *@
+            <td class="text-right"><a class="btn btn-xs btn-danger" asp-controller="Cart" asp-action="Remove" asp-route-productId="@item.Product.ProductID">Sil</a> </td> 
         </tr>
     }
     <tr>
@@ -39,7 +39,7 @@
         <td></td>
         <td></td>
         <td>
-            <a asp-controller="Product" asp-action="List" class="btn btn-xs btn-default">
+            <a asp-controller="Product" asp-action="Index" class="btn btn-xs btn-default">
                 <i class="fa fa-shopping-cart" style="font-size:24px;color:grey"> </i> Continue Shopping
             </a>
         </td>
